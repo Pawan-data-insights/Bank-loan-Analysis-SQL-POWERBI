@@ -232,7 +232,7 @@ GROUP BY MONTH(issue_date), DATENAME(month, issue_date)
 ORDER BY MONTH(issue_date);
 ```
 
-📂 The full script is available in [`sql/bank_loan_data_sql_query.sql`](sql/bank_loan_data_sql_query.sql)
+📂 View the full SQL script: [bank_loan_data_sql_query.sql](https://github.com/Pawan-data-insights/Bank-loan-Analysis-SQL-POWERBI/blob/main/sql/bank_loan_data_sql_query.sql)
 
 ---
 
