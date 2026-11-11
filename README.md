@@ -232,7 +232,7 @@ GROUP BY MONTH(issue_date), DATENAME(month, issue_date)
 ORDER BY MONTH(issue_date);
 ```
 
-📂 The full script is available in [`sql/bank_loan_data_sql_query.sql`](sql/bank_loan_data_sql_query.sql).
+📂 The full script is available in [`sql/bank_loan_data_sql_query.sql`](sql/bank_loan_data_sql_query.sql)
 
 ---
 
