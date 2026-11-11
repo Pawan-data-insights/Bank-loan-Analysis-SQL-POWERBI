@@ -77,15 +77,37 @@ A bank's lending team needs a single source of truth to answer questions such as
 
 ## 🧭 Workflow Architecture
 
-```mermaid
-flowchart LR
-    A[📄 Raw Loan Data<br/>CSV / Excel] --> B[(🗄️ SQL Server<br/>bank_loan_data)]
-    B --> C[🔍 T-SQL Analysis<br/>KPIs, MTD, MoM, Segments]
-    B --> D[🔌 Power BI<br/>Data Connection]
-    D --> E[🧹 Power Query<br/>Cleaning & Typing]
-    E --> F[🧩 Data Model<br/>& DAX Measures]
-    F --> G[📊 Interactive Dashboard<br/>Summary | Overview | Details]
-    C -. validates .-> F
+```
+┌──────────────────────────────────────────────────────────────┐
+│  PHASE 1  |  SQL SERVER                                      │
+├──────────────────────────────────────────────────────────────┤
+│  1. Raw Loan Data (CSV / Excel)                              │
+│                    ▼                                         │
+│  2. Load into SQL Server  →  table: bank_loan_data           │
+│                    ▼                                         │
+│  3. T-SQL Analysis                                           │
+│     • KPIs: Applications, Funded, Received, Int. Rate, DTI   │
+│     • MTD (Dec 2021) and PMTD (Nov 2021) comparison          │
+│     • Good vs Bad loan classification                        │
+│     • Segments: Month, State, Term, Emp. Length, Purpose,    │
+│       Home Ownership                                         │
+└──────────────────────────────┬───────────────────────────────┘
+                               ▼
+┌──────────────────────────────────────────────────────────────┐
+│  PHASE 2  |  POWER BI                                        │
+├──────────────────────────────────────────────────────────────┤
+│  4. Connect Power BI to SQL Server (Import mode)             │
+│                    ▼                                         │
+│  5. Clean & Transform in Power Query                         │
+│                    ▼                                         │
+│  6. Build Data Model + Date Table                            │
+│                    ▼                                         │
+│  7. Create DAX Measures (KPIs, MTD, PMTD, MoM, Good/Bad)     │
+│                    ▼                                         │
+│  8. Design Dashboard: Summary | Overview | Details           │
+│                    ▼                                         │
+│  9. Validate against SQL results & Publish                   │
+└──────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -333,7 +355,7 @@ The same pattern is repeated for **Good / Bad Loan Funded Amount** and **Good / 
 ## 📁 Repository Structure
 
 ```
-📦 bank-loan-analysis
+📦 Bank-loan-Analysis-SQL-POWERBI
  ┣ 📂 data
  ┃ ┗ 📄 bank_loan_data.csv
  ┣ 📂 sql
@@ -351,7 +373,8 @@ The same pattern is repeated for **Good / Bad Loan Funded Amount** and **Good / 
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/<your-username>/bank-loan-analysis.git
+   git clone https://github.com/Pawan-data-insights/Bank-loan-Analysis-SQL-POWERBI.git
+   cd Bank-loan-Analysis-SQL-POWERBI
    ```
 2. **Load the data** into SQL Server and name the table `bank_loan_data`.
 3. **Run the SQL script** in `sql/` using SSMS to reproduce the KPIs and segment analysis.
@@ -378,8 +401,8 @@ The same pattern is repeated for **Good / Bad Loan Funded Amount** and **Good / 
 MBA (Finance & IT) | Aspiring Data Analyst / Financial Analyst
 🛠️ Python • SQL • Excel • Power BI • MIS Reporting
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/your-profile)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/your-username)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pawan-singh-3952bb42b/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Pawan-data-insights)
 
 ---
 
