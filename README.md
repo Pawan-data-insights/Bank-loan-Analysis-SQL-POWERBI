@@ -308,7 +308,7 @@ The same pattern is repeated for **Good / Bad Loan Funded Amount** and **Good / 
 ## 🖼️ Dashboard Preview
 
 ### Summary Page
-[Bank-loan-Analysis-SQL-POWERBI]: Summary](image/dashboard_summary.png)
+[Bank-loan-Analysis-SQL-POWERBI]:(image/dashboard_summary.png)
 
 
 > 📸 Add your **Overview** and **Details** page screenshots to the `images/` folder and link them here.
