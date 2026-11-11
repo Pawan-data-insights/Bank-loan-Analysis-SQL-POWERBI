@@ -308,7 +308,8 @@ The same pattern is repeated for **Good / Bad Loan Funded Amount** and **Good / 
 ## 🖼️ Dashboard Preview
 
 ### Summary Page
-![Bank Loan Report: Summary](images/dashboard_summary.png..png)
+![Bank Loan Report: Summary](image/dashboard_summary.png..png)
+
 
 > 📸 Add your **Overview** and **Details** page screenshots to the `images/` folder and link them here.
 
